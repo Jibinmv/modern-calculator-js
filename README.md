@@ -66,7 +66,7 @@ calculator/
 
 1. Clone the repository
 
-git clone https://github.com/YOUR-USERNAME/calcflow.git
+git clone https://github.com/jibinmv/calcflow.git
 
 2. Open the project
 
