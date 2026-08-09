@@ -56,11 +56,11 @@ Calculator logic and user interactions
 
 calculator/
 │
-├── index.html       # Main HTML page
-├── style.css        # Calculator styling
-├── script.js        # Calculator functionality
-├── Screenshot.png   # Project preview
-└── README.md        # Project documentation
+├── index.html       
+├── style.css        
+├── script.js        
+├── Screenshot.png   
+└── README.md        
 
 🚀 Getting Started
 
