@@ -1,0 +1,199 @@
+:root {
+  --bg-color: #0f0c29;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --btn-hover: rgba(255, 255, 255, 0.1);
+  --btn-active: rgba(255, 255, 255, 0.2);
+  --accent-color: #ff0080; /* Pinkish accent */
+  --accent-gradient: linear-gradient(135deg, #ff0080 0%, #7928ca 100%);
+  --operator-color: #7928ca;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0f0c29;
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Detailed Background Animation */
+.background-blobs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.6;
+  animation: float 10s infinite ease-in-out alternate;
+}
+
+.blob-1 {
+  width: 400px;
+  height: 400px;
+  background: #ff0080;
+  top: -100px;
+  left: -100px;
+}
+
+.blob-2 {
+  width: 300px;
+  height: 300px;
+  background: #7928ca;
+  bottom: -50px;
+  right: -50px;
+  animation-delay: -2s;
+}
+
+.blob-3 {
+  width: 250px;
+  height: 250px;
+  background: #00d4ff;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(30px, 50px) scale(1.1);
+  }
+}
+
+/* Glassmorphism Calculator Container */
+.calculator-container {
+  position: relative;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.05); /* Ultra transparent */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Display Screen */
+.display {
+  text-align: right;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-height: 100px;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.previous-operand {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  min-height: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.current-operand {
+  color: var(--text-primary);
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+/* Buttons Grid */
+.buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.btn {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: var(--glass-bg);
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  border-radius: 12px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid transparent;
+}
+
+.btn:hover {
+  background: var(--btn-hover);
+  transform: translateY(-2px);
+  border-color: var(--glass-border);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: scale(0.95);
+  background: var(--btn-active);
+}
+
+/* Button Variants */
+.fn {
+  color: #00d4ff;
+  font-weight: 600;
+}
+
+.operator {
+  color: #ff0080;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.equals {
+  grid-column: span 2;
+  background: var(--accent-gradient);
+  border: none;
+  font-weight: 600;
+}
+
+.equals:hover {
+  filter: brightness(1.1);
+  background: var(--accent-gradient); /* Keep gradient */
+  box-shadow: 0 0 20px rgba(255, 0, 128, 0.4);
+}
+
+.zero {
+  grid-column: span 2;
+}
+
+/* Key Press Animation Class (JS triggered) */
+.btn.pressed {
+  transform: scale(0.9);
+  background: var(--btn-active);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
