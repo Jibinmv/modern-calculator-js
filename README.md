@@ -66,7 +66,8 @@ calculator/
 
 1. Clone the repository
 
-git clone https://github.com/jibinmv/calcflow.git
+git clone https://github.com/Jibinmv/modern-calculator-js.git
+
 
 2. Open the project
 
